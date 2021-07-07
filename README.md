@@ -225,33 +225,41 @@ in at least three other programming languages.
 
 # AUTHOR
 
-Toby Inkster <tobyink@cpan.org>.
-
-# MAINTAINER
-
-Kit Peters <popefelix@cpan.org>
+Kit Peters https://github.com/popefelix
 
 # CONTRIBUTORS
 
-Szymon Nieznański <s.nez@member.fsf.org>
+Toby Inkster https://github.com/tobyink
 
-Kit Peters <popefelix@cpan.org>
+Szymon Nieznański https://github.com/s-nez
 
-Heiko Jansen <hjansen@cpan.org>.
+Kit Peters https://github.com/popefelix
 
-Mitsuhiro Nakamura <m.nacamura@gmail.com>
+Heiko Jansen https://github.com/heikojansen
+
+Mitsuhiro Nakamura https://github.com/mnacamura
 
 David Escribano García https://github.com/DavidEGx
 
-# COPYRIGHT AND LICENCE
+Thomas Helsel https://github.com/thelsel
+
+Patrick Cronin https://github.com/PatrickCronin 
+
+James Bowery https://github.com/jabowery
+
+Slaven Rezić https://github.com/eserte
+
+Max Laager https://github.com/mlaagerc2c
+
+# COPYRIGHT AND LICENSE
 
 Copyright 2007 Stefan Goessner.
 
 Copyright 2010-2013 Toby Inkster.
 
-This module is tri-licensed. It is available under the X11 (a.k.a. MIT)
-licence; you can also redistribute it and/or modify it under the same
-terms as Perl itself.
+This software is copyright (c) 2021 by Kit Peters.
+
+This module is tri-licensed. It is available under the X11 (a.k.a. MIT) licence; you can also redistribute it and/or modify it under the same terms as Perl itself.
 
 ## a.k.a. "The MIT Licence"
 
@@ -272,14 +280,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-# AUTHOR
-
-Kit Peters <popefelix@gmail.com>
-
-# COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2022 by Kit Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
