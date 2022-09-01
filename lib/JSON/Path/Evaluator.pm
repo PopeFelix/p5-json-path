@@ -127,7 +127,6 @@ of that matched portion.
 
 sub evaluate_jsonpath {
     my ( $json_object, $expression, %args ) = @_;
-
     if ( !ref $json_object ) {
         try {
             $json_object = decode_json($json_object);
@@ -190,6 +189,8 @@ sub evaluate {
     my $json_object = $self->{root};
 
     my $token_stream = [ tokenize($expression) ];
+#use Data::Dumper qw/Dumper/;
+#print Dumper $token_stream;
     shift @{$token_stream} if $token_stream->[0] eq $TOKEN_ROOT;
     shift @{$token_stream} if $token_stream->[0] eq $TOKEN_CHILD;
 
