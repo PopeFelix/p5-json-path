@@ -45,6 +45,7 @@ Readonly my %OPERATORS                => (
     $TOKEN_NOT_EQUAL           => $OPERATOR_TYPE_COMPARISON,    # !=
     $TOKEN_GREATER_EQUAL       => $OPERATOR_TYPE_COMPARISON,    # >=
     $TOKEN_LESS_EQUAL          => $OPERATOR_TYPE_COMPARISON,    # <=
+    $TOKEN_REGEX               => $OPERATOR_TYPE_COMPARISON,    # =~
 );
 
 Readonly my $ASSERT_ENABLE => $ENV{ASSERT_ENABLE};
@@ -611,7 +612,7 @@ sub _parse_psuedojs_expression {
 
     my ( $lhs, $operator, $rhs );
 
-    # The operator could be '=', '!=', '==', '===', '<=', or '>='
+    # The operator could be '=', '!=', '==', '===', '<=', '>=' or '=~'
     if ( $expression =~ /$EQUAL_SIGN/ ) {
         my $position = index( $expression, '=' );
         if ( substr( $expression, $position + 1, 1 ) eq $EQUAL_SIGN ) {    # could be '==' or '==='
@@ -621,6 +622,9 @@ sub _parse_psuedojs_expression {
             else {
                 $operator = $TOKEN_DOUBLE_EQUAL;
             }
+        }
+        elsif ( substr( $expression, $position + 1, 1 ) eq $TILDE_SIGN ) {
+            $operator = $TOKEN_REGEX;
         }
         else {
             my $preceding_char = substr( $expression, $position - 1, 1 );
@@ -727,6 +731,18 @@ sub _compare {
     }
     if ( $operator eq '!=' || $operator eq '!==' ) {
         return $use_numeric ? ( $lhs != $rhs ) : $lhs ne $rhs;
+    }
+
+    if ( $operator eq '=~' ) {
+        if ( $rhs =~ m@^/(.*)/([msian]*)$@ ) {
+            my $regex     = $1;
+            my $modifiers = $2;
+            return $lhs =~ qr/(?$modifiers)$regex/;
+        }
+        else {
+            warn("Regexp need to be sorrounded by //. Allowed modifiers: msian");
+            return 1;
+        }
     }
     use warnings qw/uninitialized/;
 }
@@ -878,6 +894,12 @@ Using the JSON in L<SYNOPSIS> above and the JSONPath expression C<$..book[?(@.ca
 the filter expression C<@.category == "fiction"> will match all values having a value of "fiction" for
 the key "category".
 
+Regular expressions are supported using the C<=~> operator, for example:
+C<$..book[?(@.category =~ /Fiction/i)]>.
+This is an extension of the L<Goessner specification|http://goessner.net/articles/JsonPath/>
+introduced by L<Jayway JsonPath|https://github.com/json-path/JsonPath>. Other Jayway operators
+are not currently supported.
+
 =head2 Filtering with Perl
 
 When the script engine is set to "perl", filter
@@ -891,11 +913,9 @@ When filtering in Perl, there are some differences between the JSONPath spec and
 
 =begin :list
 
-* JSONPath uses the token '$' to refer to the root node. As this is not valid Perl, this should be
-replaced with '$root' in a filter expression.
+* JSONPath uses the token '$' to refer to the root node. As this is not valid Perl, this should be replaced with '$root' in a filter expression.
 
-* JSONPath uses the token '@' to refer to the current node. This is also not valid Perl. Use '$_'
-instead.
+* JSONPath uses the token '@' to refer to the current node. This is also not valid Perl. Use '$_' instead.
 
 =end :list
 
