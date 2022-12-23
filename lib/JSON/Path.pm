@@ -124,6 +124,8 @@ sub map {
 
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 JSON::Path - search nested hashref/arrayref structures using JSONPath
@@ -132,7 +134,7 @@ JSON::Path - search nested hashref/arrayref structures using JSONPath
 
  my $data = {
   "store" => {
-    "book" => [ 
+    "book" => [
       { "category" =>  "reference",
         "author"   =>  "Nigel Rees",
         "title"    =>  "Sayings of the Century",
@@ -163,17 +165,17 @@ JSON::Path - search nested hashref/arrayref structures using JSONPath
     ],
   },
  };
- 
+
  use JSON::Path 'jpath_map';
 
  # All books in the store
  my $jpath   = JSON::Path->new('$.store.book[*]');
  my @books   = $jpath->values($data);
- 
+
  # The author of the last (by order) book
  my $jpath   = JSON::Path->new('$..book[-1:].author');
  my $tolkien = $jpath->value($data);
- 
+
  # Convert all authors to uppercase
  jpath_map { uc $_ } $data, '$.store.book[*].author';
 
@@ -235,7 +237,7 @@ the first result.
 =item C<<  set($object, $value, $limit)  >>
 
 Alters C<< $object >>, setting the paths to C<< $value >>. If set, then
-C<< $limit >> limits the number of changes made. 
+C<< $limit >> limits the number of changes made.
 
 TAKE NOTE! This will create keys in $object. E.G.:
 
@@ -283,7 +285,7 @@ Like C<value>, it can be used as an lvalue.
 
 =item C<< jpath_map { CODE } $object, $path_string >>
 
-Shortcut for C<< JSON::Path->new($path_string)->map($object, $code) >>. 
+Shortcut for C<< JSON::Path->new($path_string)->map($object, $code) >>.
 
 =back
 
@@ -364,7 +366,7 @@ Kit Peters E<lt>popefelix@cpan.orgE<gt>
 
 =head1 CONTRIBUTORS
 
-Szymon Nieznański E<lt>s.nez@member.fsf.orgE<gt> 
+Szymon Nieznański E<lt>s.nez@member.fsf.orgE<gt>
 
 Kit Peters E<lt>popefelix@cpan.orgE<gt>
 

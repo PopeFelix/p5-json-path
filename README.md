@@ -4,7 +4,7 @@ JSON::Path
 
 # VERSION
 
-version 1.0.1
+version 1.0.3
 
 # SYNOPSIS
 
@@ -209,6 +209,10 @@ Specification: [http://goessner.net/articles/JsonPath/](http://goessner.net/arti
 
 Implementations in PHP, Javascript and C#:
 [http://code.google.com/p/jsonpath/](http://code.google.com/p/jsonpath/).
+
+Jayway JsonPath:
+[https://github.com/json-path/JsonPath](https://github.com/json-path/JsonPath).
+
 
 Related modules: [JSON](https://metacpan.org/pod/JSON), [JSON::JOM](https://metacpan.org/pod/JSON%3A%3AJOM), [JSON::T](https://metacpan.org/pod/JSON%3A%3AT), [JSON::GRDDL](https://metacpan.org/pod/JSON%3A%3AGRDDL),
 [JSON::Hyper](https://metacpan.org/pod/JSON%3A%3AHyper), [JSON::Schema](https://metacpan.org/pod/JSON%3A%3ASchema).

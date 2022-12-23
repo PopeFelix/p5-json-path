@@ -1,6 +1,19 @@
 {{$NEXT}}
 
     [ Bug Fixes ]
+    - Fix unicode issue in POD
+    David Escribano García++
+
+    - Fix use of quotes and escaped characters inside quoted text
+    David Escribano García++
+
+    [ Other ]
+    - Implement =~ operator to filter using regular expressions.
+    David Escribano García++
+
+1.0.2     2022-09-06 10:13:31-05:00 America/Chicago
+
+    [ Bug Fixes ]
     - Fix missing dependencies
 
 1.0.1     2022-08-30 21:58:38-05:00 America/Chicago
