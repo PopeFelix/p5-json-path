@@ -229,13 +229,13 @@ Toby Inkster <tobyink@cpan.org>.
 
 # MAINTAINER
 
-Kit Peters <popefelix@cpan.org>
+Aurelia Peters <popefelix@cpan.org>
 
 # CONTRIBUTORS
 
 Szymon Nieznański <s.nez@member.fsf.org>
 
-Kit Peters <popefelix@cpan.org>
+Aurelia Peters <popefelix@cpan.org>
 
 Heiko Jansen <hjansen@cpan.org>.
 
@@ -275,11 +275,11 @@ THE SOFTWARE.
 
 # AUTHOR
 
-Kit Peters <popefelix@gmail.com>
+Aurelia Peters <popefelix@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2022 by Kit Peters.
+This software is copyright (c) 2022 by Aurelia Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
