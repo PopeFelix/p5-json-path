@@ -10,7 +10,7 @@ version 1.0.3
 
     my $data = {
      "store" => {
-       "book" => [ 
+       "book" => [
          { "category" =>  "reference",
            "author"   =>  "Nigel Rees",
            "title"    =>  "Sayings of the Century",
@@ -41,17 +41,17 @@ version 1.0.3
        ],
      },
     };
-    
+
     use JSON::Path 'jpath_map';
 
     # All books in the store
     my $jpath   = JSON::Path->new('$.store.book[*]');
     my @books   = $jpath->values($data);
-    
+
     # The author of the last (by order) book
     my $jpath   = JSON::Path->new('$..book[-1:].author');
     my $tolkien = $jpath->value($data);
-    
+
     # Convert all authors to uppercase
     jpath_map { uc $_ } $data, '$.store.book[*].author';
 
@@ -107,7 +107,7 @@ JSONPath is described at [http://goessner.net/articles/JsonPath/](http://goessne
 - `set($object, $value, $limit)`
 
     Alters `$object`, setting the paths to `$value`. If set, then
-    `$limit` limits the number of changes made. 
+    `$limit` limits the number of changes made.
 
     TAKE NOTE! This will create keys in $object. E.G.:
 
@@ -151,7 +151,7 @@ by default:
 
 - `jpath_map { CODE } $object, $path_string`
 
-    Shortcut for `JSON::Path->new($path_string)->map($object, $code)`. 
+    Shortcut for `JSON::Path->new($path_string)->map($object, $code)`.
 
 # NAME
 
@@ -233,7 +233,7 @@ Kit Peters <popefelix@cpan.org>
 
 # CONTRIBUTORS
 
-Szymon Nieznański <s.nez@member.fsf.org> 
+Szymon Nieznański <s.nez@member.fsf.org>
 
 Kit Peters <popefelix@cpan.org>
 
