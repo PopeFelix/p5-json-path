@@ -225,29 +225,37 @@ in at least three other programming languages.
 
 # AUTHOR
 
-Toby Inkster <tobyink@cpan.org>.
-
-# MAINTAINER
-
-Aurelia Peters <popefelix@cpan.org>
+Aurelia Peters https://github.com/popefelix
 
 # CONTRIBUTORS
 
-Szymon Nieznański <s.nez@member.fsf.org>
+Toby Inkster https://github.com/tobyink
 
-Aurelia Peters <popefelix@cpan.org>
+Szymon Nieznański https://github.com/s-nez
 
-Heiko Jansen <hjansen@cpan.org>.
+Heiko Jansen https://github.com/heikojansen
 
-Mitsuhiro Nakamura <m.nacamura@gmail.com>
+Mitsuhiro Nakamura https://github.com/mnacamura
 
 David Escribano García https://github.com/DavidEGx
+
+Thomas Helsel https://github.com/thelsel
+
+Patrick Cronin https://github.com/PatrickCronin
+
+James Bowery https://github.com/jabowery
+
+Slaven Rezić https://github.com/eserte
+
+Max Laager https://github.com/mlaagerc2c
 
 # COPYRIGHT AND LICENCE
 
 Copyright 2007 Stefan Goessner.
 
 Copyright 2010-2013 Toby Inkster.
+
+Copyright 2021-2024 Aurelia Peters
 
 This module is tri-licensed. It is available under the X11 (a.k.a. MIT)
 licence; you can also redistribute it and/or modify it under the same
@@ -272,14 +280,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-# AUTHOR
-
-Aurelia Peters <popefelix@gmail.com>
-
-# COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2022 by Aurelia Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
