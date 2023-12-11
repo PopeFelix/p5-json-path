@@ -231,9 +231,9 @@ Kit Peters https://github.com/popefelix
 
 Toby Inkster https://github.com/tobyink
 
-Szymon Nieznański https://github.com/s-nez
-
 Kit Peters https://github.com/popefelix
+
+Szymon Nieznański https://github.com/s-nez
 
 Heiko Jansen https://github.com/heikojansen
 
@@ -243,7 +243,7 @@ David Escribano García https://github.com/DavidEGx
 
 Thomas Helsel https://github.com/thelsel
 
-Patrick Cronin https://github.com/PatrickCronin 
+Patrick Cronin https://github.com/PatrickCronin
 
 James Bowery https://github.com/jabowery
 
