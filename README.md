@@ -4,7 +4,7 @@ JSON::Path
 
 # VERSION
 
-version 1.0.3
+version 1.0.4
 
 # SYNOPSIS
 
@@ -280,6 +280,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+# AUTHOR
+
+Aurelia Peters <popefelix@gmail.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2022 by Aurelia Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

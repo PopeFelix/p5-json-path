@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+1.0.4     2023-12-11 13:29:46-06:00 America/Chicago
+
     [ Other ]
     - Remove dependency on JSON::Parse
     Bernhard Schmalhofer++
