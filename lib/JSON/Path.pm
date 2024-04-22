@@ -347,6 +347,9 @@ Specification: L<http://goessner.net/articles/JsonPath/>.
 Implementations in PHP, Javascript and C#:
 L<http://code.google.com/p/jsonpath/>.
 
+Jayway JsonPath:
+L<https://github.com/json-path/JsonPath>
+
 Related modules: L<JSON>, L<JSON::JOM>, L<JSON::T>, L<JSON::GRDDL>,
 L<JSON::Hyper>, L<JSON::Schema>.
 
