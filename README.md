@@ -4,7 +4,7 @@ JSON::Path
 
 # VERSION
 
-version 1.0.4
+version 1.0.5
 
 # SYNOPSIS
 
@@ -211,8 +211,7 @@ Implementations in PHP, Javascript and C#:
 [http://code.google.com/p/jsonpath/](http://code.google.com/p/jsonpath/).
 
 Jayway JsonPath:
-[https://github.com/json-path/JsonPath](https://github.com/json-path/JsonPath).
-
+[https://github.com/json-path/JsonPath](https://github.com/json-path/JsonPath)
 
 Related modules: [JSON](https://metacpan.org/pod/JSON), [JSON::JOM](https://metacpan.org/pod/JSON%3A%3AJOM), [JSON::T](https://metacpan.org/pod/JSON%3A%3AT), [JSON::GRDDL](https://metacpan.org/pod/JSON%3A%3AGRDDL),
 [JSON::Hyper](https://metacpan.org/pod/JSON%3A%3AHyper), [JSON::Schema](https://metacpan.org/pod/JSON%3A%3ASchema).
@@ -290,7 +289,7 @@ Aurelia Peters <popefelix@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2022 by Aurelia Peters.
+This software is copyright (c) 2024 by Aurelia Peters.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
