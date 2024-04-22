@@ -23,3 +23,5 @@ sketches
 NOTES.txt
 *.sw?
 local/
+build/
+issues/
