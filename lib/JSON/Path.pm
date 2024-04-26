@@ -192,7 +192,7 @@ JSONPath is described at L<http://goessner.net/articles/JsonPath/>.
 
 =item C<<  JSON::Path->new($string)  >>
 
-Given a JSONPath expression $string, returns a JSON::Path object.
+Given a JSONPath expression C<$string>, returns a C<JSON::Path> object.
 
 =back
 
@@ -359,9 +359,9 @@ L<Data::Hierarchy>... yes, the idea's not especially new. What's different
 is that JSON::Path uses a vaguely standardised syntax with implementations
 in at least three other programming languages.
 
--head1 AUTHOR
+=head1 AUTHOR
 
-Aurelia Peters https://github.com/popefelix
+Aurelia Peters L<https://github.com/popefelix>
 
 =head1 CONTRIBUTORS
 
