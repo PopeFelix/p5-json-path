@@ -1,0 +1,6 @@
+{
+    "perlnavigator.includePaths": [
+       "/home/vscode/perl5/lib",
+       "/home/vscode/perl5/lib/perl5" 
+    ]
+}
