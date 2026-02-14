@@ -28,6 +28,8 @@ Readonly my %OPERATORS => (
 # Take an expression and break it up into tokens
 sub tokenize {
     my $expression = shift;
+    my %args       = @_;
+
     #print "Tokenize \"$expression\"\n";
     my $chars = [ split //, $expression ];
 
@@ -41,6 +43,9 @@ sub tokenize {
             #            print "$invocation: script/filter open: $token\n";
             push @tokens, _read_to_filter_script_close($chars);
         }
+    }
+    if ( $args{'debug'} ) {
+        print STDERR qq([DEBUG] Tokens: ) . join( ', ', map { qq("$_") } @tokens ) . qq(\n);
     }
     return @tokens;
 }
@@ -61,20 +66,20 @@ sub _read_to_filter_script_close {
         "\\" => "\x{005C}",
     );
 
-    #print "$invocation: read to filter script close: " . join( '', @{$chars} ) . "\n";
+#print "$invocation: read to filter script close: " . join( '', @{$chars} ) . "\n";
     my $filter;
     my $in_regex;
     my $in_quote;
     my $escape = 0;
 
-    my @quote_chars = ($APOSTROPHE, $QUOTATION_MARK);
+    my @quote_chars = ( $APOSTROPHE, $QUOTATION_MARK );
     my @regex_chars = "/";
 
     while ( defined( my $char = shift @{$chars} ) ) {
-        if ( $in_quote ) {
-            if ( $escape ) {
+        if ($in_quote) {
+            if ($escape) {
                 ## Replace \t by tab, \\ by \, etc
-                $char = $escaped_chars{$char} || $char;
+                $char   = $escaped_chars{$char} || $char;
                 $escape = 0;
             }
             elsif ( $char eq "\\" ) {
@@ -87,8 +92,8 @@ sub _read_to_filter_script_close {
                 $in_quote = '';
             }
         }
-        elsif ( $in_regex ) {
-            if ( $escape ) {
+        elsif ($in_regex) {
+            if ($escape) {
                 $escape = 0;
             }
             elsif ( $char eq "\\" ) {
@@ -98,10 +103,10 @@ sub _read_to_filter_script_close {
                 $in_regex = '';
             }
         }
-        elsif (grep { $_ eq $char } @quote_chars) {
+        elsif ( grep { $_ eq $char } @quote_chars ) {
             $in_quote = $char;
         }
-        elsif (grep { $_ eq $char } @regex_chars) {
+        elsif ( grep { $_ eq $char } @regex_chars ) {
             $in_regex = $char;
         }
 
@@ -114,6 +119,7 @@ sub _read_to_filter_script_close {
 }
 
 sub _read_to_next_token {
+
     #$invocation++;
     my $chars = shift;
 
@@ -123,7 +129,8 @@ sub _read_to_next_token {
     while ( defined( my $char = shift @{$chars} ) ) {
 
         if ( $char eq $APOSTROPHE || $char eq $QUOTATION_MARK ) {
-            #print "$invocation: Char is $APOSTROPHE or $QUOTATION_MARK. Char: $char, in_quote: $in_quote\n";
+
+#print "$invocation: Char is $APOSTROPHE or $QUOTATION_MARK. Char: $char, in_quote: $in_quote\n";
             if ( $in_quote && $in_quote eq $char ) {
                 $in_quote = '';
                 last;

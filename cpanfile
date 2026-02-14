@@ -1,5 +1,6 @@
 requires 'Carp::Assert';
 requires 'Exporter::Tiny';
+requires 'Exporter::Shiny';
 requires 'JSON::MaybeXS';
 requires 'LV';
 requires 'List::Util' => '1.45';    # For uniq.

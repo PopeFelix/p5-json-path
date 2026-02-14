@@ -18,8 +18,8 @@ use LV ();
 use overload '""' => \&to_string;
 
 sub jpath {
-    my ( $object, $expression ) = @_;
-    my @return = __PACKAGE__->new($expression)->values($object);
+    my ( $object, $expression, %args ) = @_;
+    my @return = __PACKAGE__->new($expression)->values($object, %args);
 }
 
 sub jpath1 : lvalue {
@@ -97,10 +97,10 @@ sub value : lvalue {
 }
 
 sub values {
-    my ( $self, $object ) = @_;
+    my ( $self, $object, %args ) = @_;
     croak q{non-safe evaluation, died} if "$self" =~ /\?\(/ && $JSON::Path::Safe;
 
-    return JSON::Path::Evaluator::evaluate_jsonpath( $object, "$self", script_engine => 'perl' );
+    return JSON::Path::Evaluator::evaluate_jsonpath( $object, "$self", %args, script_engine => 'perl' );
 }
 
 sub map {

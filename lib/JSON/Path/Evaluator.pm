@@ -146,7 +146,7 @@ sub evaluate_jsonpath {
         _calling_context => wantarray ? 'ARRAY' : 'SCALAR',
         %args
     );
-    return $self->evaluate( $expression, want_ref => $want_ref, want_path => $want_path );
+    return $self->evaluate( $expression, want_ref => $want_ref, want_path => $want_path, debug => $args{'debug'} );
 }
 
 =method evaluate
@@ -189,9 +189,8 @@ sub evaluate {
 
     my $json_object = $self->{root};
 
-    my $token_stream = [ tokenize($expression) ];
-#use Data::Dumper qw/Dumper/;
-#print Dumper $token_stream;
+    my $token_stream = [ tokenize($expression, debug => $args{'debug'}) ];
+
     shift @{$token_stream} if $token_stream->[0] eq $TOKEN_ROOT;
     shift @{$token_stream} if $token_stream->[0] eq $TOKEN_CHILD;
 
