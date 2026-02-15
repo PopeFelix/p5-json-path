@@ -19,12 +19,12 @@ use overload '""' => \&to_string;
 
 sub jpath {
     my ( $object, $expression, %args ) = @_;
-    my @return = __PACKAGE__->new($expression)->values($object, %args);
+    return __PACKAGE__->new($expression)->values($object, %args);
 }
 
 sub jpath1 : lvalue {
     my ( $object, $expression ) = @_;
-    __PACKAGE__->new($expression)->value($object);
+    return __PACKAGE__->new($expression)->value($object);
 }
 
 sub jpath_map (&$$) {
@@ -391,7 +391,7 @@ Copyright 2007 Stefan Goessner.
 
 Copyright 2010-2013 Toby Inkster.
 
-Copyright 2021-2024 Aurelia Peters
+Copyright 2021-2026 Aurelia Peters
 
 This module is tri-licensed. It is available under the X11 (a.k.a. MIT)
 licence; you can also redistribute it and/or modify it under the same

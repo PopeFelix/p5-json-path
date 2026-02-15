@@ -207,7 +207,7 @@ sub evaluate {
     }
 
     my @ret = $self->_evaluate( $json_object, $token_stream, $args{want_ref} );
-    return @ret;
+    return wantarray ? @ret : $ret[0];
 }
 
 sub _reftable_walker {
@@ -361,7 +361,12 @@ sub _get {
     }
     else {
         my @indices;
-        if ( $index =~ /$TOKEN_ARRAY_SLICE/ ) {
+        # Only handle slices when all elements of the index save the slice
+        # operator are numeric. THIS IS A KLUDGE. By rights I should know
+        # that $index is a string ('foo:bar') instead of a slice operation 
+        # (1:2 or 1:2:3) I'll fix it properly when I rework paths as a 
+        # series of anonymous subs. -- 2026-02-14 popefelix@gmail.com
+        if ( $index =~ /$TOKEN_ARRAY_SLICE/ && ( ! grep { $_ && ! looks_like_number($_) } split /:/, $index)) {
             my $length = _hashlike($object) ? scalar values %{$object} : scalar @{$object};
             @indices = _slice( $index, $length );
         }

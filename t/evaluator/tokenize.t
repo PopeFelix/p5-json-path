@@ -1,5 +1,6 @@
 use Test2::V0;
 use JSON::Path::Tokenizer qw(tokenize);
+use Data::Dumper;
 
 my @EXPRESSIONS = (
     q{$[1:3:2].foobar}                       => [qw/$ [ 1:3:2 ] . foobar/],
@@ -20,6 +21,8 @@ my @EXPRESSIONS = (
     q{$.[*].user[?(@.login == 'laurilehmijoki')]} => [ qw/$ . [ * ] . user [?(/, q{@.login == 'laurilehmijoki'}, ')]' ],
     q{$.path\.one.two}                            => [qw/$ . path.one . two/],
     q{$.'path.one'.two}                           => [qw/$ . path.one . two/],
+    q{$['foo:bar']}                               => ['$', '[', 'foo:bar', ']'],
+    q($['key1'][0][':key2:test'])                 => ['$', '[', 'key1', ']', '[', '0', ']', '[', ':key2:test', ']',]
 );
 
 for ( 0 .. ( $#EXPRESSIONS / 2 ) ) {
