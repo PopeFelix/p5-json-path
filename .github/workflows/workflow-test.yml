@@ -1,0 +1,41 @@
+name: Workflow test
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  perl-versions:
+    runs-on: ubuntu-latest
+    name: List Perl versions
+    outputs:
+      perl-versions: ${{ steps.action.outputs.perl-versions }}
+    steps:
+      - id: action
+        uses: perl-actions/perl-versions@v1
+        with:
+          since-perl: v5.10
+          with-devel: true
+
+  perl_tester:
+    runs-on: ubuntu-latest
+    name: "Perl ${{ matrix.perl-version }}"
+    needs: [perl-versions]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        perl-version: ${{ fromJson (needs.perl-versions.outputs.perl-versions) }}
+
+    container: perldocker/perl-tester:${{ matrix.perl-version }}
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: uses install-with-cpanm
+        uses: perl-actions/install-with-cpanm@v1
+        with:
+          cpanfile: "cpanfile"
+          sudo: false
+      - run: prove -lvr t
